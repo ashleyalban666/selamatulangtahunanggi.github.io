@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="author" content="Al Jarreau Arman Maulana">
+    <meta name="description" content="cuma ucapan ulang tahun untuk Anggi.">
+    <meta name="keywords" content="gaada">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/ini.css">
+    <link rel="stylesheet" type="text/css" href="css/termynal/termynal.css">
+
+    <!-- JS -->
+    <script src="js/ini.js" type="text/javascript" defer></script>
+    <script data-termynal-container="#termynal" src="js/termynal/termynal.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2d272cae64.js" crossorigin="anonymous"></script>
+
+    <title>Hai Anggi!</title>
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <script id="2d-fragment-shader" type="x-shader/x-fragment">
+        //<![CDATA[
+        #ifdef GL_ES
+        precision highp float;
+        #endif
+        
+        #define PI 3.14159265359;
+        
+        uniform vec2 u_resolution;
+        uniform vec2 u_mouse;
+        uniform float u_time;
+        uniform float u_xpos;
+        uniform float u_ypos;
+        
+        vec3 mod289(vec3 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+        
+        vec4 mod289(vec4 x) {
+            return x - floor(x * (1.0 / 289.0)) * 289.0;
+        }
+        
+        vec4 permute(vec4 x) {
+            return mod289(((x*34.0)+1.0)*x);
+        }
+        
+        vec4 taylorInvSqrt(vec4 r)
+        {
+            return 1.79284291400159 - 0.85373472095314 * r;
+        }
+        
+        float snoise(vec3 v)
+        {
+            const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+            const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+            
+            vec3 i  = floor(v + dot(v, C.yyy) );
+            vec3 x0 =   v - i + dot(i, C.xxx) ;
+            
+            vec3 g = step(x0.yzx, x0.xyz);
+            vec3 l = 1.0 - g;
+            vec3 i1 = min( g.xyz, l.zxy );
+            vec3 i2 = max( g.xyz, l.zxy );
+            
+            vec3 x1 = x0 - i1 + C.xxx;
+            vec3 x2 = x0 - i2 + C.yyy;
+            vec3 x3 = x0 - D.yyy;
+            
+            i = mod289(i);
+            vec4 p = permute( permute( permute(
+                i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+                + i.y + vec4(0.0, i1.y, i2.y, 1.0 ))
+                + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+                
+                float n_ = 0.142857142857;
+                vec3  ns = n_ * D.wyz - D.xzx;
+                
+                vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                vec4 x_ = floor(j * ns.z);
+                vec4 y_ = floor(j - 7.0 * x_ );
+                
+                vec4 x = x_ *ns.x + ns.yyyy;
+                vec4 y = y_ *ns.x + ns.yyyy;
+                vec4 h = 1.0 - abs(x) - abs(y);
+                
+                vec4 b0 = vec4( x.xy, y.xy );
+                vec4 b1 = vec4( x.zw, y.zw );
+                
+                vec4 s0 = floor(b0)*2.0 + 1.0;
+                vec4 s1 = floor(b1)*2.0 + 1.0;
+                vec4 sh = -step(h, vec4(0.0));
+                
+                vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+                vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+                
+                vec3 p0 = vec3(a0.xy,h.x);
+                vec3 p1 = vec3(a0.zw,h.y);
+                vec3 p2 = vec3(a1.xy,h.z);
+                vec3 p3 = vec3(a1.zw,h.w);
+                
+                vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+                p0 *= norm.x;
+                p1 *= norm.y;
+                p2 *= norm.z;
+                p3 *= norm.w;
+                
+                vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                m = m * m;
+                return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
+                dot(p2,x2), dot(p3,x3) ) );
+            }
+            
+            void main() {
+                vec3 color1 = vec3(75.0/255.0,144.0/255.0,210.0/255.0);
+                vec3 color2 = vec3(252.0/255.0,244.0/255.0,111.0/255.0);
+                vec3 color3 = vec3(244.0/255.0,238.0/255.0,87.0/255.0);
+                vec3 color4 = vec3(242.0/255.0,232.0/255.0,99.0/255.0);
+                vec3 color5 = vec3(242.0/255.0,205.0/255.0,96.0/255.0);
+                vec3 color6 = vec3(255.0/255.0,255.0/255.0,255.0/255.0);
+                vec2 lt = vec2(gl_FragCoord.x + u_xpos, gl_FragCoord.y + u_ypos);
+                vec2 st = lt.xy/u_resolution.xy;
+                st.x *= u_resolution.x/u_resolution.y;
+                vec3 color = vec3(0.0);
+                vec2 pos = vec2(st*0.6);
+                float DF = 0.0;
+                float a = 0.0;
+                vec2 vel = vec2(u_time*.1);
+                st.xy *= 0.4;
+                float r = snoise(vec3(st.x,st.y,u_time * 0.1));
+                
+                if(r > 0.60){
+                    color = color5;
+                } else if(r > 0.20){
+                    color = color4;
+                } else if(r > -0.20){
+                    color = color3;
+                } else if(r > -0.60){
+                    color = color2;
+                } else if(r > -2.0){
+                    color = color1;
+                }
+                
+                gl_FragColor = vec4(color,1.0);
+            }
+            //]]>
+        </script>
+    <script id="2d-vertex-shader" type="x-shader/x-vertex">
+        //<![CDATA[
+            attribute vec2 a_position;
+            void main() {
+                gl_Position = vec4(a_position, 0, 1);
+            }
+            //]]>
+        </script>
+    <canvas id="canvas"></canvas>
+
+    <!-- Date & Time -->
+    <div class="container-header">
+        <div id="jam-berapa"></div>
+        <div id="hari-ini"></div>
+    </div>
+
+    <!-- Message & Avatar -->
+    <div id="termynal" data-termynal>
+        <span data-ty data-ty-progressChar="."></span>
+        <span data-ty="input">Hai Anggi.</span>
+        <span data-ty="input">Gimana kabarnya?</span>
+        <span data-ty>Semoga baik baik aja ya.</span>
+        <span data-ty="input">Oh iya, itu diatas ada keterangan Jam & Tanggal buat ngingetin aja. Kalo di kamu ngeliat
+            ini saat jam berapa dan di Tanggal ini
+            umurmu udah bertambah, ehe.</span>
+        <span data-ty="input">So, ya, i just can say,</span>
+        <span data-ty="input" style="font-weight: bold; font-style: italic;"> Selamat Ulang Tahun, Anggita!</span>
+        <span data-ty="input">Semoga, dengan bertambahnya umurmu saat ini...</span>
+        <span data-ty data-ty-prompt="~ihope">Tetep sehat selalu. Keluarga juga disana.</span>
+        <span data-ty data-ty-prompt="~ihope">Selalu diberi rezeki yang berlimpah.</span>
+        <span data-ty data-ty-prompt="~ihope">Selalu taat sama omongan Mama, Papa.</span>
+        <span data-ty data-ty-prompt="~ihope">Lebih dewasa lagi dari segala Pikiran dan Perbuatan.</span>
+        <span data-ty data-ty-prompt="~ihope">Di terima Universitas yang kamu harapin.</span>
+        <span data-ty="input">dan Harapan/Doa lain yang terbaik buat kamu.</span>
+        <span data-ty="input">Cuman itu aja yang bisa gue bilang.</span>
+        <span data-ty="input">Once more,</span>
+        <span data-ty="input" style="font-weight: bold; font-style: italic;"> Selamat ulang tahun Anggi!</span>
+        <span data-ty="input">...</span>
+        <span data-ty="input">Semangat SBMPTN-nya!</span>
+        <span data-ty="input">#8daysofcode .</span>
+    </div>
+    <script>
+        var termynal = new Termynal('#termynal', {
+            startDelay: 600,
+            lineDelay: 2000,
+            typeDelay: 100,
+            cursor: '|',
+        })
+    </script>
+    <div class="avatar"></div>
+
+    <!-- SocialMedia & Copyright -->
+    <div class="container-footer">
+        <div id="sosial-media">
+            <a href="https://github.com/ashleyalban666" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://gitlab.com/ashleyalban666" target="_blank"><i class="fab fa-gitlab"></i></a>
+            <a href="https://ashleyalban666.pw" target="_blank"><i class="fas fa-film"></i></a>
+            <a href="https://instagram.com/ashleyalban666" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/ashleyalban666" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <footer id="copyright">
+            &copy; 2020 Made with <span class="fas fa-heart" style="color:#FF69B4"></span>
+            <strong>Al Jarreau AM.</strong>
+        </footer>
+    </div>
+</body>
+
+</html>

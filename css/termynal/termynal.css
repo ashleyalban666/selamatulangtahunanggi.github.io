@@ -1,0 +1,144 @@
+/**
+ * termynal.js
+ *
+ * @author Ines Montani <ines@ines.io>
+ * @version 0.0.1
+ * @license MIT
+ */
+
+:root {
+    --color-text: #212121;
+    --color-text-subtle: #424242;
+}
+
+[data-termynal] {
+    background-image: url(../../assets/img/3816842.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-text);
+    height: 350px;
+    overflow: auto;
+    width: 750px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Fira Code',
+        Fira Mono,
+        'monospace';
+    margin-top: 25px;
+    margin-right: auto;
+    margin-bottom: 25px;
+    margin-left: auto;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 75px 45px 35px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+}
+
+[data-termynal]:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /* A little hack to display the window buttons in one pseudo element. */
+    background: #E74C3C;
+    -webkit-box-shadow: 25px 0 0 #f4c025,
+        50px 0 0 #2ECC71;
+    box-shadow: 25px 0 0 #f4c025,
+        50px 0 0 #2ECC71;
+}
+
+[data-termynal]:after {
+    content: 'ehe^^';
+    position: absolute;
+    color: var(--color-text-subtle);
+    top: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 575.98px) {
+    [data-termynal] {
+        background-image: url(../../assets/img/1386.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: var(--color-text);
+        height: 350px;
+        overflow: auto;
+        width: 350px;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 18px;
+        font-family: 'Fira Code',
+            Fira Mono,
+            'monospace';
+        margin-top: 25px;
+        margin-right: auto;
+        margin-bottom: 25px;
+        margin-left: auto;
+        max-height: 100%;
+        max-width: 100%;
+        padding: 75px 45px 35px;
+        position: relative;
+        -webkit-box-sizing: border-box;
+    }
+}
+
+[data-ty] {
+    display: block;
+    line-height: 2;
+}
+
+[data-ty]:before {
+    /* Set up defaults and ensure empty lines are displayed. */
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[data-ty="input"]:before,
+[data-ty-prompt]:before {
+    margin-right: 0.75em;
+    color: var(--color-text-subtle);
+}
+
+[data-ty="input"]:before {
+    content: '🥳';
+}
+
+[data-ty][data-ty-prompt]:before {
+    content: attr(data-ty-prompt);
+}
+
+[data-ty-cursor]:after {
+    content: attr(data-ty-cursor);
+    font-family: monospace;
+    margin-left: 0.5em;
+    -webkit-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+}
+
+
+/* Cursor animation */
+
+@-webkit-keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
